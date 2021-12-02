@@ -119,7 +119,7 @@ char serial_number[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
 // array of pointer to string descriptors
 char const *string_desc_arr[] = {
     (const char[]){0x09, 0x04}, // 0: is supported language is English (0x0409)
-    "Raspberry Pi",             // 1: Manufacturer
+    "Generic",             // 1: Manufacturer
     "Mouse",                    // 2: Product
     serial_number,                   // 3: Serials, should use chip ID
 };
