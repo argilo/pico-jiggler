@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 include(lib/pico-sdk/pico_sdk_init.cmake)
 
 project(pico-jiggler
-VERSION 1.0.0
+VERSION 1.1.0
 HOMEPAGE_URL https://github.com/akhilharihar/pico-jiggler
 LANGUAGES C CXX ASM)
 
