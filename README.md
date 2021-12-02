@@ -6,7 +6,7 @@ This program turns the Raspberry Pi Pico into a simulated mouse that periodicall
 Installation
 ------------
 
-1. Download `jiggler.uf2` from the [latest release](https://github.com/argilo/pico-jiggler/releases/latest).
+1. Download `jiggler.uf2` from the [latest release](https://github.com/akhilharihar/pico-jiggler/releases/).
 2. Plug in the Raspberry Pi Pico while holding the "BOOTSEL" button.
 3. Drag the `jiggler.uf2` file into the "RPI-RP2" USB mass storage device that appears.
 
