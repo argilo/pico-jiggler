@@ -25,6 +25,7 @@
 
 #include "usb_descriptors.h"
 #include "tusb.h"
+#include "pico/unique_id.h"
 
 /* A combination of interfaces must have a unique product id, since PC will save
  * device driver after the first plug. Same VID/PID with different interface e.g
@@ -114,13 +115,13 @@ uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
 //--------------------------------------------------------------------+
 // String Descriptors
 //--------------------------------------------------------------------+
-
+char serial_number[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
 // array of pointer to string descriptors
 char const *string_desc_arr[] = {
     (const char[]){0x09, 0x04}, // 0: is supported language is English (0x0409)
     "Raspberry Pi",             // 1: Manufacturer
     "Mouse",                    // 2: Product
-    "123456",                   // 3: Serials, should use chip ID
+    serial_number,                   // 3: Serials, should use chip ID
 };
 
 static uint16_t _desc_str[32];
@@ -132,6 +133,8 @@ uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t langid) {
   (void)langid;
 
   uint8_t chr_count;
+
+  pico_get_unique_board_id_string(serial_number, 2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1);
 
   if (index == 0) {
     memcpy(&_desc_str[1], string_desc_arr[0], 2);
